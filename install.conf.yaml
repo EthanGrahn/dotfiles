@@ -1,0 +1,23 @@
+- defaults:
+    link:
+      relink: true
+      force: true
+
+- clean: ['~']
+
+- link:
+    ~/.gitconfig: gitconfig
+    ~/.zshrc: zshrc
+    ~/.oh-my-zsh/custom:
+      glob: true
+      path: oh-my-zsh/custom/**
+
+- create:
+    - ~/projects
+
+- shell:
+  - [apt install zsh && chsh -s $(which zsh), Making zsh the default shell]
+  - [sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended, Installing oh-my-zsh]
+  - [curl -fsSL https://fnm.vercel.app/install | bash && fnm completions --shell zsh, Installing fast node manager (fnm)]
+  - [curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash, Installing pyenv]
+
