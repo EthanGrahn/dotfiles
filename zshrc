@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/egrahn/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -99,9 +99,6 @@ fi
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
-alias -g aws-saml="aws-saml-login -r default -d 28800"
-alias -g aws="docker run --rm -it -v ~/.aws:/root/.aws artifactory.wma.chs.usgs.gov/docker-official-mirror/amazon/aws-cli:2.1.21"
 
 export PATH=~/.fnm:$PATH
 eval "$(fnm env)"

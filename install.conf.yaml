@@ -5,19 +5,23 @@
 
 - clean: ['~']
 
-- link:
-    ~/.gitconfig: gitconfig
-    ~/.zshrc: zshrc
-    ~/.oh-my-zsh/custom:
-      glob: true
-      path: oh-my-zsh/custom/**
-
 - create:
     - ~/projects
 
 - shell:
-  - [apt install zsh && chsh -s $(which zsh), Making zsh the default shell]
+  - [sudo apt update, Run apt update]
+  - [sudo apt install -y zsh, Making zsh the default shell. Run chsh -s $(which zsh) after install finishes.]
+  - ['if [ -d ~/.oh-my-zsh ]; then rm -rf ~/.oh-my-zsh; ls -a ~/ | for file in $(grep .zshrc.pre) ; do rm ~/$file; unset ZSH; done; fi', Remove oh-my-zsh directory if it exists]
   - [sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended, Installing oh-my-zsh]
-  - [curl -fsSL https://fnm.vercel.app/install | bash && fnm completions --shell zsh, Installing fast node manager (fnm)]
+  - [curl -fsSL https://fnm.vercel.app/install | bash, Installing fast node manager (fnm)]
+  - ['if [ -d ~/.pyenv ]; then rm -rf ~/.pyenv; fi', Remove pyenv directory if it exists]
   - [curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash, Installing pyenv]
+  - [sudo apt autoremove -y, Clean up using apt autoremove]
 
+- link:
+    ~/.gitconfig:
+      path: gitconfig
+    ~/.zshrc:
+      path: zshrc
+    ~/.oh-my-zsh/custom:
+      path: oh-my-zsh/custom
