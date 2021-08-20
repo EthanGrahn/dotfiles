@@ -18,6 +18,7 @@
   - [curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash, Installing pyenv]
   - [sudo apt install -y terminator, Install terminator terminal]
   - [sudo snap install --classic code, Install VSCode]
+  - [sudo add-apt-repository universe && sudo apt install fonts-firacode, Install FiraCode font]
   - [sudo apt autoremove -y, Clean up using apt autoremove]
   - 
     command: gsettings set org.gnome.shell favorite-apps "$(gsettings get org.gnome.shell favorite-apps | sed -E "s/]|'terminator\.desktop'(, )?|'code_code.desktop'(, )?//g"), 'terminator.desktop', 'code_code.desktop']" 
